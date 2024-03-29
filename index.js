@@ -12,6 +12,7 @@ async function readUserWorld(user) {
     const data = await fs.readFile(`userworlds/${user}-world.json`);
     return JSON.parse(data);
   } catch (error) {
+    console.log(error)
     return world;
   }
 }
