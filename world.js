@@ -1,6 +1,6 @@
 module.exports = {
-   "name": "Ville",
-   "logo": "icones/ville.jpg",
+   "name": "fleurs",
+   "logo": "icones/logo.jpg",
    "money": 999999999,
    "score": 200000000,
    "totalangels": 2000000,
@@ -10,8 +10,8 @@ module.exports = {
    "products": [
        {
            "id": 1,
-           "name": "Ecole",
-           "logo": "icones/ecole.jpg",
+           "name": "fleur",
+           "logo": "icones/fleur.jpg",
            "cout": 4,
            "croissance": 1.07,
            "revenu": 1,
@@ -21,8 +21,8 @@ module.exports = {
            "managerUnlocked": false,
            "palliers": [
                {
-                   "name": "palierEcole",
-                   "logo": "icones/premierpalier.jpg",
+                   "name": "tortue",
+                   "logo": "icones/tortue.jpg",
                    "seuil": 20,
                    "idcible": 1,
                    "ratio": 2,
@@ -30,8 +30,8 @@ module.exports = {
                    "unlocked": false
                },
                {
-                   "name": "palierHopital",
-                   "logo": "icones/deuxiemepalier.jpg",
+                   "name": "vache",
+                   "logo": "icones/vache.jpg",
                    "seuil": 75,
                    "idcible": 1,
                    "ratio": 2,
@@ -42,8 +42,8 @@ module.exports = {
        },
        {
            "id": 2,
-           "name": "Hopital",
-           "logo": "icones/hopital.jpg",
+           "name": "fleur1",
+           "logo": "icones/fleur1.jpg",
            "cout": 0,
            "croissance": 1,
            "revenu": 0,
@@ -57,7 +57,7 @@ module.exports = {
    "allunlocks": [
        {
            "name": "Nom du premier unlock général",
-           "logo": "icones/premierunlock.jpg",
+           "logo": "icones/unlock.jpg",
            "seuil": 30,
            "idcible": 0,
            "ratio": 2,
@@ -68,7 +68,7 @@ module.exports = {
    "upgrades": [
        {
            "name": "Nom du premier upgrade",
-           "logo": "icones/premierupgrade.jpg",
+           "logo": "icones/upgrade.jpg",
            "seuil": 1000,
  },
  
@@ -88,8 +88,8 @@ module.exports = {
 
  "managers": [
     {
-    "name": "Wangari Maathai",
-    "logo": "icones/WangariMaathai.jpg",
+    "name": "manager",
+    "logo": "icones/manager.jpg",
     "seuil": 10,
     "idcible": 1,
     "ratio": 0,
