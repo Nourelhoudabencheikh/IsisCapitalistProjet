@@ -1,2 +1,54 @@
-<app-chouchou></app-chouchou>
-<app-product></app-product>
+<!--{{world.name}}
+
+<img class="logo" [src] = "server + world.logo"/>
+<img class="logo" src = "assets/Smartcity.jpg" height="700px" width="1400px"/>
+
+<div class="main">
+  <div class="menu"></div>
+
+
+
+
+<div class="products"  *ngFor="let product of world.products">
+
+    <div>
+
+
+      <app-product></app-product>
+
+
+      </div>
+
+
+  </div>
+</div>-->
+
+<div class="header">
+    <img src="worldIcon.png" alt="World Icon">
+    <div *ngIf="world">
+        <h1>{{ world.name }}</h1>
+        <p>{{ world.money }}</p>
+        <div>{{ world.angelbonus }}</div>
+      </div>
+    <input type="number" placeholder="Purchase Quantity">
+    <input type="text"  placeholder="Your Name">
+  </div>
+  
+  <div class="sidebar">
+    <!-- Buttons for displaying additional windows -->
+    <button (click)="showUpgrades()">Upgrades</button>
+    <button (click)="showUnlocks()">Unlocks</button>
+    <button (click)="showManagers()">Managers</button>
+  </div>
+  
+  <div class="main-content">
+    <div class="product" *ngFor="let product of world.products">
+      <img src="{{ product.logo }}" alt="{{ product.name }} Icon">
+      <h2>{{ product.name }}</h2>
+      <p>Quantity: {{ product.quantite }}</p>
+      <!--<app-my-progress-bar value="{{ product.croissance }}" max="100"        class="progressbar" [value]="progressbarvalue"></app-my-progress-bar>--> 
+      <button (click)="buyProduct(product)">Buy</button>
+      <!-- Other interaction elements for the product -->
+    </div>
+  </div>
+  

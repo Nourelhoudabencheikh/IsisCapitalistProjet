@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChouchouComponent } from './chouchou.component';
+import { MyProgressBarComponent } from './my-progress-bar.component';
 
-describe('ChouchouComponent', () => {
-  let component: ChouchouComponent;
-  let fixture: ComponentFixture<ChouchouComponent>;
+describe('MyProgressBarComponent', () => {
+  let component: MyProgressBarComponent;
+  let fixture: ComponentFixture<MyProgressBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChouchouComponent]
+      imports: [MyProgressBarComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ChouchouComponent);
+    fixture = TestBed.createComponent(MyProgressBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

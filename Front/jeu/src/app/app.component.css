@@ -1,0 +1,131 @@
+/* Styles for the header */
+.header {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 20px; /* Spacing around content */
+    text-align: center; /* Center align text */
+  }
+  
+  /* Styles for the sidebar */
+  .sidebar {
+    float: left; /* Align to left */
+    width: 20%; /* Width of sidebar */
+    padding: 20px; /* Spacing around content */
+    background-color: #f1f1f1; /* Light grey background */
+  }
+  
+  /* Style for the main content */
+  .main-content {
+    float: left; /* Align to left */
+    width: 80%; /* Width of main content */
+    padding: 20px; /* Spacing around content */
+  }
+  
+  /* Style for product container */
+  .product {
+    border: 1px solid #ccc; /* Grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Spacing around product */
+    margin-bottom: 10px; /* Spacing between products */
+  }
+  
+  /* Style for product image */
+  .product img {
+    max-width: 100px; /* Maximum width for product image */
+    max-height: 100px; /* Maximum height for product image */
+    margin-bottom: 10px; /* Spacing below image */
+  }
+  
+  /* Style for product name */
+  .product h2 {
+    font-size: 18px; /* Larger font size for product name */
+    margin-bottom: 5px; /* Spacing below product name */
+  }
+  
+  /* Style for quantity text */
+  .product p {
+    font-size: 14px; /* Smaller font size for quantity text */
+    margin-bottom: 5px; /* Spacing below quantity text */
+  }
+  
+  /* Style for buy button */
+  .product button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 5px 10px; /* Padding around button text */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 3px; /* Rounded corners */
+  }
+  
+  /* Hover effect for buy button */
+  .product button:hover {
+    background-color: #45a049; /* Darker green background on hover */
+  }
+  
+
+  /* Style for buttons */
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding around button text */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #45a049; /* Darker green background on hover */
+  }
+  
+  /* Additional style for secondary buttons */
+  .secondary-button {
+    background-color: #008CBA; /* Blue background */
+  }
+  
+  /* Hover effect for secondary buttons */
+  .secondary-button:hover {
+    background-color: #005f6b; /* Darker blue background on hover */
+  }
+  
+  /* Additional style for danger buttons */
+  .danger-button {
+    background-color: #f44336; /* Red background */
+  }
+  
+  /* Hover effect for danger buttons */
+  .danger-button:hover {
+    background-color: #d32f2f; /* Darker red background on hover */
+  }
+  .product-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne lorsque l'espace est insuffisant */
+  }
+  
+  .product-item {
+    width: calc(50% - 20px); /* Largeur de chaque produit, moins la marge */
+    margin: 10px; /* Marge autour de chaque produit */
+    padding: 10px; /* Espacement interne de chaque produit */
+    border: 1px solid #ccc; /* Bordure autour de chaque produit */
+    box-sizing: border-box; /* Inclut la bordure dans la largeur et la hauteur */
+  }
+  
+  .product-item img {
+    max-width: 100%;
+    max-height: 100px;
+  }
+  
+  .product-item .name {
+    font-weight: bold;
+  }
+  
+  .product-item .quantity {
+    margin-top: 5px;
+  }
+  
+  .product-item .purchase-button {
+    margin-top: 10px;
+  }
+  
