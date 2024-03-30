@@ -1,4 +1,6 @@
+const { log, Console } = require('console');
 const fs = require('fs')
+const initialWorld = require('./world');
 
 function saveWorld(context) {
     fs.writeFile(`userworlds/${context.user}-world.json`,
@@ -10,9 +12,14 @@ function saveWorld(context) {
             }
         })
 }
+function calcangelfromscore(score) {
+    const angelsPerScore = 0.01; 
+    return Math.floor(score * angelsPerScore);
+  }
 
 function updateWorld(world) {
     let elapseTime = Date.now() - world.lastupdate;
+    console.log('elapstime : ', elapseTime)
     // il faut changer world.lastupdate en entier 
     world.lastupdate = Date.now() 
     world.products.forEach(product=> {
@@ -27,7 +34,7 @@ function calcQtProductionforElapseTime(product, elapseTime) {
             
             if (elapseTime > product.timeleft) {
                 nbrProd = 1;
-                elaspseTime -= product.timeleft
+                elapseTime -= product.timeleft
                 nbrProd += elapseTime / product.vitesse
                 product.timeleft = product.vitesse - elapseTime % product.vitesse;
             } else {
@@ -65,6 +72,65 @@ module.exports = {
     },
     
     Mutation: {
+        acheterCashUpgrade(parent, { name }, context) {
+            const upgrade = context.world.upgrades.find(u => u.name === name);
+
+            if (!upgrade) {
+                throw new Error(`L'upgrade avec le nom ${name} n'existe pas`);
+            }
+
+            // Vérifiez si l'upgrade est déverrouillée
+            if (upgrade.unlocked) {
+                throw new Error(`L'upgrade ${name} a déjà été déverrouillée`);
+            }
+
+            // Effectuez les opérations d'achat ici (par exemple, déduction d'argent)
+            // Assurez-vous de mettre à jour le monde et de sauvegarder les modifications
+
+            upgrade.unlocked = true;
+
+            saveWorld(context);
+
+            return upgrade;
+        },
+        acheterAngelUpgrade(parent, { name }, context) {
+            const angelUpgrade = context.world.angelupgrades.find(u => u.name === name);
+
+            if (!angelUpgrade) {
+                throw new Error(`L'upgrade d'ange avec le nom ${name} n'existe pas`);
+
+            }
+
+            // Vérifiez si l'upgrade d'ange est déverrouillée
+            if (angelUpgrade.unlocked) {
+                throw new Error(`L'upgrade d'ange ${name} a déjà été déverrouillée`);
+            }
+
+            // Effectuez les opérations d'achat ici (par exemple, utilisation des anges)
+            // Assurez-vous de mettre à jour le monde et de sauvegarder les modifications
+
+            angelUpgrade.unlocked = true;
+
+
+            saveWorld(context);
+
+            return angelUpgrade;
+        },
+        resetWorld(parent, args, context) {
+            const angels = calcangelfromscore(context.world.score);
+          
+            context.world = {
+              ...initialWorld,
+              totalangels: angels,
+              lastupdate: Date.now(),
+            };
+          
+            saveWorld(context);
+          
+            return context.world;
+          },
+
+
         acheterQtProduit(parent, { id, quantite }, context) {
             updateWorld(context.world);
 
@@ -122,5 +188,7 @@ module.exports = {
 
             return manager;
         }
+
+
     }
 };
