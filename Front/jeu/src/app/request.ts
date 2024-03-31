@@ -1,7 +1,7 @@
 import { query } from '@angular/animations'
 import { gql } from '@urql/core'
 
-export const  BACKEND = "https://isiscapitalistgraphql.kk.kurasawa.fr/"
+export const  BACKEND = "http://localhost:4000/graphql"
 //Il faut changer url avec la notre
 
 export const GET_WORLD = gql`

@@ -8,7 +8,7 @@ import { Client, fetchExchange } from '@urql/core';
 })
 export class WebService {
 
-  server = BACKEND + "graphql";
+  server = BACKEND;
   user = 'ISIS';
 
   constructor() { }

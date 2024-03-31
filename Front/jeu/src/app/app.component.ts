@@ -13,43 +13,39 @@ import { MultiplicatorService } from './multiplicator.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,ProductComponent,MyProgressBarComponent,NgFor,NgIf, FormsModule, BigvaluePipe, CommonModule], 
+  imports: [RouterOutlet, ProductComponent, MyProgressBarComponent, NgFor, NgIf, FormsModule, BigvaluePipe, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'jeu';
 
   username: string = '';
-  api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql'
+  api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql';
   //server: String = 'http://localhost:4000/'
 
   showManagersSection = false;
   showUnlocksSection = false;
 
-
-
-  showContent
-
-  server = BACKEND
+  showContent = true;
   world: World = new World();
-  constructor(private service: WebService, private router: Router, public multiplicator: MultiplicatorService ) {
-   this.multiplicator=multiplicator;
-   this.getUsername();
-   
-   this.showContent = true
-   service.getWorld().then(
-   world => {
-   this.world = world.data.getWorld;
-   });
+
+  constructor(private service: WebService, private router: Router, public multiplicator: MultiplicatorService) {
+    this.multiplicator = multiplicator;
+    this.getUsername();
+
+    this.service.getWorld().then(
+      world => {
+        this.world = world.data.getWorld;
+      }
+    );
   }
 
-  changeVitesse(){
+  changeVitesse() {
     //this.world.products[0]={
-     // ...this.world.products[0].vitesse : this.newvitesse
-  //  }
+    // ...this.world.products[0].vitesse : this.newvitesse
+    //}
   }
-
 
   worldName!: string;
   playerMoney!: number;
@@ -57,13 +53,13 @@ export class AppComponent {
   purchaseQuantity!: number;
   products!: any[];
 
-
   ngOnInit(): void {
     this.service.getWorld().then(world => {
       this.worldName = world.data.name;
       this.playerMoney = world.data.money;
       this.products = world.data.products;
     });
+    console.log(this.username)
   }
 
   buyProduct(product: Product): void {
@@ -83,29 +79,33 @@ export class AppComponent {
   }
 
   getUsername() {
-   // if (localStorage.getItem("username")) {
-     // this.username = localStorage.getItem("username")!;
-    //}
+    if (typeof window !== 'undefined' && window.localStorage) {
+      this.username = window.localStorage.getItem("username") || '';
+    }
+    console.log(this.username)
   }
 
   onUsernameChanged() {
-    //localStorage.setItem("username", this.username);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.setItem("username", this.username);
+    }
+    console.log(this.username)
   }
 
   reloadPage() {
     this.router.navigate(['.']).then(() => {
-      window.location.reload();
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
     });
   }
 
   toggleManagersSection() {
     this.showManagersSection = !this.showManagersSection;
-
   }
 
   toggleUnlocksSection() {
-    this.showUnlocksSection= !this.showUnlocksSection;
-
+    this.showUnlocksSection = !this.showUnlocksSection;
   }
 
   engagerManager(manager: Pallier) {
@@ -113,9 +113,9 @@ export class AppComponent {
       console.log("erreur: " + reason)
     );
   }
-  userUnlock(unlock : Pallier){
+  userUnlock(unlock: Pallier) {
     this.service.userUnlock(unlock).catch(reason =>
-        console.log("erreur: " + reason)
+      console.log("erreur: " + reason)
     );
   }
 
