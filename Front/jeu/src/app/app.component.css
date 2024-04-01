@@ -139,4 +139,24 @@ button {
     background-attachment: fixed; /* Fixe l'image lorsque l'utilisateur fait défiler la page */
 
   }   
-  
+  /* Style des boutons dans le bloc */
+.button-block button {
+  background-color: #4CAF50; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement intérieur (haut/bas, gauche/droite) */
+  font-size: 16px; /* Taille de la police */
+  border: none; /* Pas de bordure */
+  border-radius: 4px; /* Coins arrondis */
+  margin-bottom: 20px; /* Espacement vertical entre les boutons */
+  cursor: pointer; /* Curseur pointer */
+  transition: background-color 0.3s; /* Animation de transition de la couleur de fond */
+  margin-left: 260px;
+}
+
+.button-block button:hover {
+  background-color: #45a049; /* Couleur de fond au survol */
+}
+
+.button-block button:active {
+  background-color: #3e8e41; /* Couleur de fond lorsque le bouton est enfoncé */
+}

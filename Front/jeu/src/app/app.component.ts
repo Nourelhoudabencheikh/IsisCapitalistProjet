@@ -1,4 +1,4 @@
-import { Component, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, Input, Output, QueryList, ViewChildren, afterNextRender } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { BACKEND } from './request';
@@ -37,7 +37,12 @@ export class AppComponent {
   constructor(private service: WebService, private router: Router, public multiplicator: MultiplicatorService) {
     this.multiplicator = multiplicator;
     this.getUsername();
-
+    afterNextRender(() => {
+      // Focus the first input element in this component.
+      this.username = localStorage.getItem("username") || "";
+      console.info("username: ", this.username)
+    });
+         
     this.service.getWorld().then(
       world => {
         this.world = world.data.getWorld;
