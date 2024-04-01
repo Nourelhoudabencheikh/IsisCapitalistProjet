@@ -23,7 +23,10 @@
   </div>
 </div>-->
 
-<div class="header">
+
+
+
+<!--<div class="header">
     <img src="worldIcon.png" alt="World Icon">
     <div *ngIf="world">
         <h1>{{ world.name }}</h1>
@@ -35,7 +38,6 @@
   </div>
   
   <div class="sidebar">
-    <!-- Buttons for displaying additional windows -->
     <button (click)="showUpgrades()">Upgrades</button>
     <button (click)="showUnlocks()">Unlocks</button>
     <button (click)="showManagers()">Managers</button>
@@ -46,9 +48,139 @@
       <img src="{{ product.logo }}" alt="{{ product.name }} Icon">
       <h2>{{ product.name }}</h2>
       <p>Quantity: {{ product.quantite }}</p>
-      <!--<app-my-progress-bar value="{{ product.croissance }}" max="100"        class="progressbar" [value]="progressbarvalue"></app-my-progress-bar>--> 
       <button (click)="buyProduct(product)">Buy</button>
-      <!-- Other interaction elements for the product -->
     </div>
-  </div>
+  </div>-->
+
   
+
+  <div class="principale">    
+    <div class="header">
+        <div class="logo-world">
+            <img id="logoWorld" [src]="world.logo" alt="Bloom's garden" />
+        </div>
+        <div> <span id="worldmoney"> {{world.money}}</span> </div>
+
+        <div>
+            <button (click)="onMultiplicateurClick()" class="multiplicateur" type="button">Multiplicator : {{ multiplicator.multiplicateurValue }}</button>
+        </div>
+        <div>
+            Player ID <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()" />
+            <button class="multiplicateur" (click)="reloadPage()">Load My World</button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="button">
+            <table class="listeboutons">
+                <tbody>
+                    <tr>
+                        <td><button class="boutonunlocks" type="button" (click)="toggleUnlocksSection()">Unlocks</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="boutoncash" type="button">Cash Upgrades</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="boutonangel" type="button">Angel Upgrades</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="boutonManagers" type="button" (click)="toggleManagersSection()">Managers</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="boutoninvestors" type="button">Investors</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="product" style="margin: 0 auto; width: fit-content;">
+            <table class="product-table">
+                <tbody>
+                    <div class="product" *ngFor="let product of world.products; let index = index">
+                       
+                            <tr>
+                                <td><div> <app-product [money]="world.money" [produit]="world.products[index]" class="product col-md-6" (notifyProduction)="onProductionDone($event)" (notifyBuy)="onBuy($event)"></app-product></div></td>
+                            </tr>
+                           
+        
+        
+                    </div>
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="dessus" *ngIf="showManagersSection">
+        <h2 class="PageTitle"> Do you need a manager help ! </h2>
+        <button class="close-button" (click)="toggleManagersSection()">Press</button>
+
+        <div class="colonnes" style="display: flex;">
+          <div class="column">
+            <ul>
+                <ng-container *ngFor="let manager of world.managers; let index = index">
+                    <li *ngIf="!manager.unlocked === false"  style="margin: 15px;">
+                      <div *ngIf="index % 2 === 0">
+                        <img class="round" [src]="server + manager.logo" />
+                        {{manager.name}}
+                        <button class="boutonengager" (click)="engagerManager(manager)"> Occupy {{manager.name}} </button>
+                      </div>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+        <div class="column">
+            <ul>
+                <ng-container *ngFor="let manager of world.managers; let index = index">
+                    <li *ngIf="!manager.unlocked=== true" style="margin: 15px;">
+                      <div *ngIf="index % 2 === 0">
+                        <img class="round" [src]="server + manager.logo" />
+                        {{manager.name}}
+                        <button class="boutonengager" (click)="engagerManager(manager)"> Occupy {{manager.name}} </button>
+                      </div>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="dessus" *ngIf="showUnlocksSection">
+        <h2 class="PageTitle"> what are you waiting for, Become rich NOW by using the unlocks ! </h2>
+        <button class="close-button" (click)="toggleUnlocksSection()">Press</button>
+
+        <div class="colonnes" style="display: flex;">
+            <div class="column">
+                <ul>
+                    <ng-container *ngFor="let unlock of world.allunlocks; let index = index">
+                      <li *ngIf="!unlock.unlocked=== false" style="margin: 15px;">
+                        <div *ngIf="index % 2 === 0">
+                        <img class="round" [src]="server + unlock.logo" /> {{unlock.name}}
+                        <button class="boutondebloquer"> Unlock {{unlock.name}} </button>
+                        </div>
+                      </li>
+                  </ng-container>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                  <ng-container *ngFor="let unlock of world.allunlocks; let index = index">
+                    <li *ngIf="!unlock.unlocked=== true" style="margin: 15px;">
+                      <div *ngIf="index % 2 === 1">
+                        <img class="round" [src]="server + unlock.logo" /> {{unlock.name}}
+                        <button class="boutondebloquer"> Unlock {{unlock.name}} </button>
+                      </div>
+                    </li>
+                  </ng-container>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+
+    
+
+ 

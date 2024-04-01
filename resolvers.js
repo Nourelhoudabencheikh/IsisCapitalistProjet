@@ -10,6 +10,8 @@ function saveWorld(context) {
                 throw new Error(
                     `Erreur d'écriture du monde coté serveur`)
             }
+            console.log("err",Error.prepareStackTrace);
+
         })
 }
 function calcangelfromscore(score) {
@@ -19,7 +21,9 @@ function calcangelfromscore(score) {
 
 function updateWorld(world) {
     let elapseTime = Date.now() - world.lastupdate;
-    console.log('elapstime : ', elapseTime)
+    console.log('elapstime : ', elapseTime);
+    console.log("err",Error.prepareStackTrace);
+
     // il faut changer world.lastupdate en entier 
     world.lastupdate = Date.now() 
     world.products.forEach(product=> {

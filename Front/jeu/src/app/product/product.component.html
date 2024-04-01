@@ -16,3 +16,80 @@ Vitesse : <input type="text" [(ngModel)]="vitesse"/>
 </app-my-progress-bar-component>
 
 </div>-->
+
+<!--<div class="product-details">
+    <table class="product-details-table">
+      <tbody>
+        <tr>
+          <th ><span class="productId" > {{product.name}}</span></th>
+          <th scope="row" colspan="2"><span class="productTimeLeft"  >timeleft: {{product.timeleft}}</span></th>
+        </tr>
+        <tr>
+          <td><img class="logoProduct" [src]="server+product.logo" [alt]="product.name" (click)="lancerProduction(this.product)"/><span class="productQuantite" >{{product.quantite}}</span></td>
+  
+          <td><span class="productCout" > cout: {{product.cout}}</span></td>
+          <td><span class="productVitesse" >vitesse: {{product.vitesse}}</span></td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="2"><button class="boutonachat" type="button" (click)="acheterQtProduit(this.product)">Buy !</button></td>
+        </tr>
+        <tr>
+          <td scope="row" colspan="3">
+            <div class="progressbar-container">
+              <app-my-progress-bar [run]="run" [auto]="auto"
+              frontcolor="#008800"
+              backcolor="#DD2476"
+              [orientation]="orientation"
+              [vitesse]="product.vitesse"
+              [initialValue]="initialValue"
+              [style.background-color]="'#C0C0C0'"
+              [style.width]="'100%'">
+              </app-my-progress-bar>
+            </div></td>
+        </tr>
+  
+      </tbody>
+  
+    </table>
+  </div>-->
+
+  <div class="product-details">
+  <table class="product-details-table">
+    <tbody>
+      <tr>
+        <th ><span class="productId" > {{product.name}}</span></th>
+        <th scope="row" colspan="2"><span class="productTimeLeft"  >timeleft: {{product.timeleft}}</span></th>
+      </tr>
+      <tr>
+        <td><img class="logoProduct" [src]="product.logo" [alt]="product.name" (click)="lancerProduction(this.product)"/><span class="productQuantite" >{{product.quantite}}</span></td>
+
+        <td><span class="productCout" > cout: {{product.cout}}</span></td>
+        <td><span class="productVitesse" >vitesse: {{product.vitesse}}</span></td>
+      </tr>
+      <tr>
+        <td scope="row" colspan="2"><button class="boutonachat" type="button" (click)="acheterQtProduit(this.product)">Buy !</button></td>
+      </tr>
+      <tr>
+        <td scope="row" colspan="3">
+          {{product.revenu}}$/{{product.name}}
+          <div class="progressbar-container">
+          <!--<div class="progressbar" style="background-color: red;">-->
+            <app-my-progress-bar [run]="run" [auto]="auto"
+            frontcolor="#008800"
+            backcolor="#DD2476"
+            [orientation]="orientation"
+            [vitesse]="product.vitesse"
+            [initialValue]="initialValue"
+            [style.background-color]="'#C0C0C0'"
+            [style.width]="'100%'">
+</app-my-progress-bar>
+         <!--<mat-progress-bar [value]="progressbarvalue" title="progression" ></mat-progress-bar></div>-->
+          <!--</div>--></div></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+</div>
+
+  

@@ -1,0 +1,86 @@
+/* Style pour le conteneur principal */
+.garden-product-details {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour la table */
+  .garden-product-details-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style pour les cellules de la table */
+  .garden-product-details-table td,
+  .garden-product-details-table th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Style pour le nom de la plante */
+  .plant-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Style pour le temps jusqu'à la floraison */
+  .time-left {
+    color: #888;
+  }
+  
+  /* Style pour le logo de la plante */
+  .plant-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Style pour la quantité de plante */
+  .plant-quantity {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  /* Style pour le coût de la plante */
+  .plant-cost {
+    color: #009933; /* Vert */
+  }
+  
+  /* Style pour la vitesse de croissance de la plante */
+  .plant-growth-speed {
+    color: #DD2476; /* Rose */
+  }
+  
+  /* Style pour le bouton d'achat */
+  .buy-button {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  /* Style pour la barre de progression */
+  .progress-bar-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  /* Style pour la barre de progression intérieure */
+  .my-progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50; /* Vert */
+  }
+  

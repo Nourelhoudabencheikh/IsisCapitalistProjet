@@ -1,19 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, QueryList, ViewChildren } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { BACKEND } from './request';
 import { Pallier, Product, World } from './world';
 import { WebService } from './web.service';
-import { MyProgressBarComponent } from './my-progress-bar/my-progress-bar.component';
+import { MyProgressBarComponent, Orientation } from './my-progress-bar/my-progress-bar.component';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BigvaluePipe } from './bigvalue.pipe';
 import { MultiplicatorService } from './multiplicator.service';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductComponent, MyProgressBarComponent, NgFor, NgIf, FormsModule, BigvaluePipe, CommonModule],
+  imports: [RouterOutlet, MyProgressBarComponent, NgFor, NgIf, FormsModule, BigvaluePipe, CommonModule, ProductComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -21,14 +22,17 @@ export class AppComponent {
   title = 'jeu';
 
   username: string = '';
-  api: String = 'https://isiscapitalistgraphql.kk.kurasawa.fr/graphql';
-  //server: String = 'http://localhost:4000/'
+  server: String = 'http://localhost:4000/graphql'
 
   showManagersSection = false;
   showUnlocksSection = false;
+  run = false
 
   showContent = true;
   world: World = new World();
+  product : any = new Product()
+  @ViewChildren(ProductComponent)
+   productsComponent!: QueryList<ProductComponent>;
 
   constructor(private service: WebService, private router: Router, public multiplicator: MultiplicatorService) {
     this.multiplicator = multiplicator;
@@ -37,6 +41,7 @@ export class AppComponent {
     this.service.getWorld().then(
       world => {
         this.world = world.data.getWorld;
+        //console.log(world);
       }
     );
   }
@@ -59,7 +64,6 @@ export class AppComponent {
       this.playerMoney = world.data.money;
       this.products = world.data.products;
     });
-    console.log(this.username)
   }
 
   buyProduct(product: Product): void {
@@ -139,5 +143,26 @@ export class AppComponent {
     this.world.money -= coutTot * this.multiplicator.multiplicateurValue;
   }
 
+  argentPourPalier(pallier  : Pallier){
+    return this.world.money >= pallier.seuil
+  }
+
+
+
+
+
+
+
+
+
+  lancerProduction(product : Product){
+    if (this.product.timeleft == 0) {
+      this.run = true
+      this.product.timeleft = this.product.vitesse
+      this.product.lastupdate = Date.now()
+      this.service.launchProduction(this.product).catch(reason =>
+        console.log("erreur: " + reason));
+    }}
+   
   
 }

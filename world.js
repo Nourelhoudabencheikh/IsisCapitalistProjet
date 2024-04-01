@@ -1,6 +1,6 @@
 module.exports = {
    "name": "fleurs",
-   "logo": "icones/logo.jpg",
+   "logo": "../../../../../public/icones/logo.jpg",
    "money": 999999999,
    "score": 200000000,
    "totalangels": 2000000,
@@ -11,7 +11,7 @@ module.exports = {
        {
            "id": 1,
            "name": "fleur",
-           "logo": "icones/fleur.jpg",
+           "logo": "../../../../../public/icones/fleur.jpg",
            "cout": 4,
            "croissance": 1.07,
            "revenu": 1,
@@ -22,7 +22,7 @@ module.exports = {
            "palliers": [
                {
                    "name": "tortue",
-                   "logo": "icones/tortue.jpg",
+                   "logo": "../../../../../public/icones/tortue.jpg",
                    "seuil": 20,
                    "idcible": 1,
                    "ratio": 2,
@@ -31,7 +31,7 @@ module.exports = {
                },
                {
                    "name": "vache",
-                   "logo": "icones/vache.jpg",
+                   "logo": "../../../../../public/icones/vache.jpg",
                    "seuil": 75,
                    "idcible": 1,
                    "ratio": 2,
@@ -43,7 +43,7 @@ module.exports = {
        {
            "id": 2,
            "name": "fleur1",
-           "logo": "icones/fleur1.jpg",
+           "logo": "../../../../../public/icones/fleur1.jpg",
            "cout": 0,
            "croissance": 1,
            "revenu": 0,
@@ -57,7 +57,7 @@ module.exports = {
    "allunlocks": [
        {
            "name": "Nom du premier unlock général",
-           "logo": "icones/unlock.jpg",
+           "logo": "../../../../../public/icones/unlock.jpg",
            "seuil": 30,
            "idcible": 0,
            "ratio": 2,
@@ -68,7 +68,7 @@ module.exports = {
    "upgrades": [
        {
            "name": "Nom du premier upgrade",
-           "logo": "icones/upgrade.jpg",
+           "logo": "../../../../../public/icones/upgrade.jpg",
            "seuil": 1000,
  },
  
@@ -76,7 +76,7 @@ module.exports = {
  "angelupgrades": [
  {
  "name": "Angel Sacrifice",
- "logo": "icones/angel.png",
+ "logo": "../../../../../public/icones/angel.png",
  "seuil": 10,
  "idcible": 0,
  "ratio": 3,
@@ -89,7 +89,7 @@ module.exports = {
  "managers": [
     {
     "name": "manager",
-    "logo": "icones/manager.jpg",
+    "logo": "../../../../../public/icones/manager.jpg",
     "seuil": 10,
     "idcible": 1,
     "ratio": 0,

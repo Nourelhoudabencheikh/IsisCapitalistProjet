@@ -128,4 +128,15 @@ button {
   .product-item .purchase-button {
     margin-top: 10px;
   }
+
+  .principale {
+    background: no-repeat url("../assets/garden.jpg") ; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Personnalisation du positionnement */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    background-attachment: fixed; /* Fixe l'image lorsque l'utilisateur fait défiler la page */
+
+  }   
   
