@@ -22,7 +22,7 @@ export class AppComponent {
   title = 'jeu';
 
   username: string = '';
-  server: String = 'http://localhost:4000/graphql'
+  server: String = 'http://localhost:4000/'
 
   showManagersSection = false;
   showUnlocksSection = false;
@@ -121,11 +121,16 @@ export class AppComponent {
     this.service.engagerManager(manager).catch(reason =>
       console.log("erreur: " + reason)
     );
+    console.log("Engagement réussi")
+    this.world.money -= this.product.pallier[0].seuil
   }
+
   userUnlock(unlock: Pallier) {
     this.service.userUnlock(unlock).catch(reason =>
       console.log("erreur: " + reason)
-    );
+     
+
+    ); 
   }
 
   onMultiplicateurClick() {
@@ -151,14 +156,6 @@ export class AppComponent {
   argentPourPalier(pallier  : Pallier){
     return this.world.money >= pallier.seuil
   }
-
-
-
-
-
-
-
-
 
   lancerProduction(product : Product){
     if (this.product.timeleft == 0) {

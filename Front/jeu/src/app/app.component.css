@@ -160,3 +160,11 @@ button {
 .button-block button:active {
   background-color: #3e8e41; /* Couleur de fond lorsque le bouton est enfoncé */
 }
+.logo{
+  width: 100px; /* Largeur souhaitée */
+    height: auto; /* Pour maintenir les proportions */
+}
+.roundManager{
+  width: 100px; /* Largeur souhaitée */
+    height: auto; /* Pour maintenir les proportions */
+}

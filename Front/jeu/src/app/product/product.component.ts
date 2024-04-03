@@ -41,7 +41,7 @@ export class ProductComponent {
   progressbarvalue=0;
   lastupdate = Date.now();
 
-  server : String='http://localhost:4000/graphql';
+  server : String='http://localhost:4000/';
   api="https://isiscapitalistgraphql.kk.kurasawa.fr/";
 
 
@@ -106,6 +106,7 @@ export class ProductComponent {
         }
       }
     } else { 
+      this.run = true
       let createdObjects = Math.floor(elapsedTime / this.product.vitesse);
       this.product.timeleft = this.product.vitesse - (elapsedTime % this.product.vitesse);
       for (let i = 0; i < createdObjects; i++) {
@@ -120,24 +121,25 @@ export class ProductComponent {
   
 
   BuyProduct(){
-   /* if(this._money >= this.multiplicator.multiplicateurValue * this.product.cout){
+    if(this._money >= this.multiplicator.multiplicateurValue * this.product.cout){
       this.product.quantite += this.multiplicator.multiplicateurValue
       let coutTot= this.multiplicator.multiplicateurValue * this.product.cout
       this.notifyBuy.emit(coutTot);
       this.acheterQtProduit(this.product);
-      
+      console.log("produit achété")
     }else{
   
-    }*/
+    }
 
-    if(this.product.timeleft == 0) {
+    /*if(this.product.timeleft == 0) {
       this.service.launchProduction(this.product).catch(reason =>
         console.log("Erreur : " + reason)
       );
       this.product.timeleft = this.product.vitesse;
       this.run = true;
       this.product.lastupdate = Date.now().toString();
-    }
+    }*/
+    
   }
   
     setProgress(value: number) {

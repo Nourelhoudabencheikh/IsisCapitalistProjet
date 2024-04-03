@@ -1,6 +1,6 @@
 module.exports = {
    "name": "fleurs",
-   "logo": "../../../../../public/icones/logo.jpg",
+   "logo": "icones/logo.jpg",
    "money": 999999999,
    "score": 200000000,
    "totalangels": 2000000,
@@ -10,8 +10,8 @@ module.exports = {
    "products": [
        {
            "id": 1,
-           "name": "fleur",
-           "logo": "../../../../../public/icones/fleur.jpg",
+           "name": "Gypsophile",
+           "logo": "icones/fleur.jpg",
            "cout": 4,
            "croissance": 1.07,
            "revenu": 1,
@@ -22,7 +22,7 @@ module.exports = {
            "palliers": [
                {
                    "name": "tortue",
-                   "logo": "../../../../../public/icones/tortue.jpg",
+                   "logo": "icones/tortue.jpg",
                    "seuil": 20,
                    "idcible": 1,
                    "ratio": 2,
@@ -31,7 +31,7 @@ module.exports = {
                },
                {
                    "name": "vache",
-                   "logo": "../../../../../public/icones/vache.jpg",
+                   "logo": "icones/vache.jpg",
                    "seuil": 75,
                    "idcible": 1,
                    "ratio": 2,
@@ -40,24 +40,72 @@ module.exports = {
                }
            ]
        },
+       {"id": 2,
+           "name": "Tulip",
+           "logo": "icones/fleur2.jpg",
+           "cout": 4,
+           "croissance": 1.07,
+           "revenu": 16,
+           "vitesse": 500,
+           "quantite": 7,
+           "timeleft": 0,
+           "managerUnlocked": false,
+           "palliers": [
+               {
+                   "name": "tortue",
+                   "logo": "icones/tortue.jpg",
+                   "seuil": 20,
+                   "idcible": 1,
+                   "ratio": 2,
+                   "typeratio": "vitesse",
+                   "unlocked": false
+               },
+               {
+                   "name": "vache",
+                   "logo": "icones/vache.jpg",
+                   "seuil": 75,
+                   "idcible": 1,
+                   "ratio": 2,
+                   "typeratio": "vitesse",
+                   "unlocked": false
+               }
+           ]
+       },
+     
        {
-           "id": 2,
-           "name": "fleur1",
-           "logo": "../../../../../public/icones/fleur1.jpg",
-           "cout": 0,
+           "id": 3,
+           "name": "Orchid",
+           "logo": "icones/fleur3.jpg",
+           "cout": 12,
            "croissance": 1,
-           "revenu": 0,
-           "vitesse": 0,
-           "quantite": 0,
+           "revenu": 12,
+           "vitesse": 35,
+           "quantite": 99,
            "timeleft": 0, // Initialiser timeleft avec une valeur entière
            "managerUnlocked": false,
            "palliers": null
-       }
+       },
+       {
+        "id": 4,
+        "name": "Rose",
+        "logo": "icones/fleur4.jpg",
+        "cout": 15,
+        "croissance": 1,
+        "revenu": 15,
+        "vitesse": 55,
+        "quantite": 8,
+        "timeleft": 0, // Initialiser timeleft avec une valeur entière
+        "managerUnlocked": false,
+        "palliers": null
+    },
+    
+       
+
    ],
    "allunlocks": [
        {
            "name": "Nom du premier unlock général",
-           "logo": "../../../../../public/icones/unlock.jpg",
+           "logo": "icones/unlock.jpg",
            "seuil": 30,
            "idcible": 0,
            "ratio": 2,
@@ -68,7 +116,7 @@ module.exports = {
    "upgrades": [
        {
            "name": "Nom du premier upgrade",
-           "logo": "../../../../../public/icones/upgrade.jpg",
+           "logo": "icones/upgrade.jpg",
            "seuil": 1000,
  },
  
@@ -76,7 +124,7 @@ module.exports = {
  "angelupgrades": [
  {
  "name": "Angel Sacrifice",
- "logo": "../../../../../public/icones/angel.png",
+ "logo": "icones/angel.png",
  "seuil": 10,
  "idcible": 0,
  "ratio": 3,
@@ -88,14 +136,24 @@ module.exports = {
 
  "managers": [
     {
-    "name": "manager",
-    "logo": "../../../../../public/icones/manager.jpg",
+    "name": "alix",
+    "logo": "icones/manager.jpg",
     "seuil": 10,
     "idcible": 1,
     "ratio": 0,
     "typeratio": "gain",
     "unlocked": false
     },
+    {
+        "name": "alexandre",
+        "logo": "icones/manager.jpg",
+        "seuil": 10,
+        "idcible": 1,
+        "ratio": 0,
+        "typeratio": "gain",
+        "unlocked": false
+        },
+      
   
     ]
    };

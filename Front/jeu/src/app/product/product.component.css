@@ -101,4 +101,7 @@
   .boutonachat:active {
     background-color: #3e8e41; /* Couleur de fond lorsque le bouton est enfoncé */
   }
-  
+  .logoProduct{
+    width: 100px; /* Largeur souhaitée */
+      height: auto; /* Pour maintenir les proportions */
+  }
